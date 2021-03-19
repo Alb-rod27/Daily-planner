@@ -1,52 +1,47 @@
 //add current day to the top of the calender.
-var toDo = {};
+let day = moment().format("dddd, MMMM Do YYYY");
+$("#currentDay").html(day);
 
-$(document).ready(function() {
-$("#currentDay").html(moment().format('LLLL'));
+auditTask(tasks);
 
-
-var currentHour = {
-    "9":[],
-    "10":[],
-    "11":[],
-    "12":[],
-    "13":[],
-    "14":[],
-    "15":[],
-    "16":[],
-    "17":[]
-}
-        {
-        auditTasks()
+        var tasks = {
+            "9":[],
+            "10":[],
+            "11":[],
+            "12":[],
+            "13":[],
+            "14":[],
+            "15":[],
+            "16":[],
+            "17":[]
         }
+
     //indicate whether the the time blocks are past, present, future. If/else statment might help, use military time.
-    var auditTasks = function() {
-        /* update the background of each row based on the time of day */
-    
-        var currentHour = moment().hour();
-        $(".task-info").each( function() {
-            var elementHour = parseInt($(this).attr("id"));
-    
-            // handle past, present, and future
-            if ( elementHour < currentHour ) {
-                $(this).removeClass(["present", "future"]).addClass("past");
+        
+            var currentHour = moment().hour() 
+        
+            if ((currentTask) > currentTime) {
+                $("#text").addClass("past");
+                $("#text").removeClass("future");
+                $("#text").removeClass("present");
             }
-            else if ( elementHour === currentHour ) {
-                $(this).removeClass(["past", "future"]).addClass("present");
+            else if ((currentTask) < currentTime) {
+                $("#text").removeClass("future");
+                $("#text").removeClass("past");
+                $("#text").addClass("present");
             }
-            else {
-                $(this).removeClass(["past", "present"]).addClass("future");
+            else ((currentTask) === currentTime); {
+                $("#text").removeClass("past");
+                $("#text").removeClass("present");
+                $("#text").addClass("future");
+                
             }
-        })
-    };
+        
     
-    //add entered text into local storage with the save button. 
-    var currentHour = function() {
-        localStorage.setItem("toDo", JSON.stringify(toDo));
-        console.log(toDo);
-      };
+            //add entered text into local storage with the save button. 
+            
     
-});
+// });
     
 
     
