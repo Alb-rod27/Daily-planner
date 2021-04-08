@@ -3,19 +3,6 @@ let day = moment().format("dddd MMMM Do YYYY, h:mm a");
 $("#currentDay").html(day);
 
 
-// auditTask(tasks);
-
-// var tasks = {
-//     "9":[],
-//     "10":[],
-//     "11":[],
-//     "12":[],
-//     "13":[],
-//     "14":[],
-//     "15":[],
-//     "16":[],
-//     "17":[]
-// }
 $("saveBtn").click(function () {
     var input = $(this).child(".description").val();
     var time = $(this).parent().attr("id");
@@ -49,9 +36,7 @@ function timer() {
 
     })
 }
-//add entered text into local storage with the save button. 
-
-
+ 
 let loadItems = function() {
     for(let i = 9; i < 17; i++){
         $("#"+i + ".discription").val(localStorage.getItem(i));
